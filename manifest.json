@@ -11,9 +11,16 @@
     "default_icon": "img/icon-auto.png",
     "default_popup": "popup.html"
   },
+  
+  "background": {
+	"scripts": ["js/background.js"],
+	"persistent": true
+  },
+  
   "permissions": [
 	"tabs",
 	"proxy",
-	"storage"
+	"storage",
+	"background"
   ]
 }
