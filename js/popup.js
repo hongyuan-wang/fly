@@ -1,7 +1,15 @@
 $(function(){
 	$("#proxy-domain").click(function(){
 		var domain = $("#curr-domain").html().trim();
-		
+		chrome.storage.sync.get("domain-list", function(items){
+			if(typeof(items['domain-list']) == "undefined") {
+				chrome.storage.sync.set({"domain-list": [domain]});
+			} else {
+				items['domain-list'].push(domain);
+				chrome.storage.sync.set({"domain-list": items['domain-list']});
+			}
+			//console.log(items['domain-list']);
+		});
 	});
 	
 	$("#turn-mode").click(function(){
