@@ -2,19 +2,16 @@ $(function(){
 	//show mode status
 	var proxyer = chrome.extension.getBackgroundPage().proxyer;
 	if(proxyer.status == "off") {
-		$("#turn-mode").html("off");
+		$('#status-toggle').bootstrapToggle('off');
 	} else {
-		$("#turn-mode").html("on");
+		$('#status-toggle').bootstrapToggle('on');
 	}
 	
-	$("#turn-mode").click(function(){
-		var mode = $("#turn-mode").html().trim();
-		if(mode == "off") {
+	$("#status-toggle").change(function(){
+		if($(this).prop('checked')) {
 			proxyer.start();
-			$("#turn-mode").html("on");
 		} else {
 			proxyer.stop();
-			$("#turn-mode").html("off");
 		}
 	});
 	
@@ -29,7 +26,7 @@ $(function(){
 			}
 			
 			proxyer.start();
-			$("#turn-mode").html("on");
+			$('#status-toggle').bootstrapToggle('on');
 		});
 	});
 	
