@@ -27,7 +27,9 @@ $(function(){
 				items['domain-list'].push(domain);
 				chrome.storage.sync.set({"domain-list": items['domain-list']});
 			}
-			//console.log(items['domain-list']);
+			
+			proxyer.start();
+			$("#turn-mode").html("on");
 		});
 	});
 	
