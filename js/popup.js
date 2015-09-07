@@ -10,8 +10,10 @@ $(function(){
 	$("#status-toggle").change(function(){
 		if($(this).prop('checked')) {
 			proxyer.start();
+			chrome.browserAction.setIcon({path: 'img/icon-on.png'});
 		} else {
 			proxyer.stop();
+			chrome.browserAction.setIcon({path: 'img/icon-off.png'});
 		}
 	});
 	
