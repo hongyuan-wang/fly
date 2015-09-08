@@ -7,18 +7,23 @@
 	<title>fly extension</title>
 	<style>
 		body{
-			width: 130px;
+			width: 230px;
+			padding-left: 14px;
 		}
 		.toggle.ios, .toggle-on.ios, .toggle-off.ios { border-radius: 20px; } 
 		.toggle.ios .toggle-handle { border-radius: 20px; } 
 	</style>
 </head>
 <body>
-current domain:
-<div id="curr-domain"></div>
-<button id="proxy-domain">proxy this domain</button>
-<input id="status-toggle" type="checkbox" data-toggle="toggle" data-style="ios" data-onstyle="success" data-offstyle="warning">
 
+<h4>Current domain:</h4>
+<div style="margin-bottom: 9px;">
+<img id="domain-icon" style="width:32px; height:32px"/><span id="curr-domain"></span>
+</div>
+<div style="margin-bottom: 6px;">
+<button id="proxy-domain" class="btn btn-default">proxy this domain</button>
+<input id="status-toggle" type="checkbox" data-toggle="toggle" data-style="ios" data-onstyle="success" data-offstyle="warning">
+</div>
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap-toggle.min.js"></script>
 <script src="js/popup.js"></script>

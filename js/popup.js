@@ -36,6 +36,7 @@ $(function(){
 		var link = document.createElement("a");
 		link.href = tabs[0].url;
 		$("#curr-domain").html(link.hostname);
+		$("#domain-icon").attr("src", tabs[0].favIconUrl);
 	});
 	
 	
