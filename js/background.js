@@ -1,9 +1,15 @@
+chrome.storage.sync.get("domain-list", function(items){
+	if(typeof(items['domain-list']) == "undefined") {
+		chrome.storage.sync.set({"domain-list": []});
+	}
+});
+
 var proxyer = {
 		status : "on",
 		start : function(){
 			chrome.storage.sync.get("domain-list", function(items){
 				var hostCondition = "";
-				if(typeof(items['domain-list']) != "undefined") {
+				if(items['domain-list'].length != 0) {
 					for(var i=0; i<items['domain-list'].length; i++) {
 						hostCondition += "host == '" + items['domain-list'][i] + "' || ";
 					}
