@@ -1,2 +1,2 @@
 # fly
-a chrome extension that make proxy easy
+a chrome extension that makes proxy easy
