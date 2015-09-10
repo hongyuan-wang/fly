@@ -41,3 +41,16 @@ var proxyer = {
 	}
 	
 proxyer.start();
+
+//buffer to store timeout-domains
+var buffer = [];
+chrome.webRequest.onErrorOccurred.addListener(
+	function(details){
+		if(details.error == "net::ERR_CONNECTION_TIMED_OUT") {
+			var link = document.createElement("a");
+			link.href = details.url;
+			buffer.push(link.hostname);
+		}
+	},
+	{urls: ["<all_urls>"]}
+);

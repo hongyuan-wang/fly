@@ -21,6 +21,8 @@
 	"tabs",
 	"proxy",
 	"storage",
-	"background"
+	"background",
+	"webRequest",
+	"*://*/"
   ]
 }
