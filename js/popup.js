@@ -23,8 +23,10 @@ $(function(){
 		chrome.storage.sync.get("domain-list", function(items){
 			if($(domainBtn).html() == "proxy this domain") {
 				items['domain-list'].push(domain);
-				if (domain.indexOf("www") != -1) {
+				if (domain.indexOf("www") != -1 ) {
 					items['domain-list'].push(domain.replace("www", "*"));
+				} else if (domain.indexOf(".") == domain.lastIndexOf(".")) {
+					items['domain-list'].push("*." + domain);
 				}
 			} else {
 				for(var i=0; i<items['domain-list'].length; i++) {
