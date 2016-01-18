@@ -23,6 +23,9 @@ $(function(){
 		chrome.storage.sync.get("domain-list", function(items){
 			if($(domainBtn).html() == "proxy this domain") {
 				items['domain-list'].push(domain);
+				if (domain.indexOf("www") != -1) {
+					items['domain-list'].push(domain.replace("www", "*"));
+				}
 			} else {
 				for(var i=0; i<items['domain-list'].length; i++) {
 					if(items['domain-list'][i] == domain) {

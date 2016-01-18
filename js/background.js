@@ -12,6 +12,7 @@ var proxyer = {
 				if(items['domain-list'].length != 0) {
 					for(var i=0; i<items['domain-list'].length; i++) {
 						hostCondition += "host == '" + items['domain-list'][i] + "' || ";
+						hostCondition += "host.match( '/" + items['domain-list'][i] + "') != null || ";
 					}
 					hostCondition = hostCondition.substring(0, hostCondition.lastIndexOf("||"));
 				} else {
