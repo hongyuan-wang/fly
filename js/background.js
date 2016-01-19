@@ -35,8 +35,17 @@ var proxyer = {
 			
 		},
 		stop : function(){
-			var config = {mode:"system"};
+			// var config = {mode:"system 	"};
+			// chrome.proxy.settings.set({value: config, scope: 'regular'});
+			var config = {
+					mode: "pac_script",
+					pacScript: {
+						data: "function FindProxyForURL(url, host) {\n" +
+						  "			return 'PROXY 127.0.0.1:8080';}"
+					}
+				};
 			chrome.proxy.settings.set({value: config, scope: 'regular'});
+			
 			this.status = "off";
 		}
 	}
